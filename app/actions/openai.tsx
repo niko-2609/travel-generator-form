@@ -10,7 +10,6 @@ import { streamText } from 'ai';
 
 
 const model = process.env.OPENAI_MODEL || 'gpt-4o-mini';
-const OPENAI_API_KEY = "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"
 
 // export const config = {
 //   runtime: "edge",
