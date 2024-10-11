@@ -34,7 +34,7 @@ const getPrompt = ({ source_city, destination_city, mass_tourism, ecological, tr
   Ignore all the previous information. I want to plan a trip ${travel_type === 'solo' ? 'alone' : `as a ${travel_type}`}. You will need to generate a presentation of my future trip. Organize this presentation as follows:
 
   - a short introduction
-  - a table including all the useful and logistical information needed to travel to the concerned countries (vaccines, currency, safety, capital, religion, language, etc.). Render this table in HTML
+  - a table including all the useful and logistical information needed to travel to the concerned countries (vaccines, currency, safety, capital, religion, language, etc.). Also include any intermediate stops that maybe required to reach the destination, to the table. Render this table in HTML
   - a detailed list of the trip you will have prepared according to the duration I will give you, from the starting point to the destination. Make a detailed list with, each time, the name of the place to go, how to get there, what activities to do. Add the coordinates (latitude, longitude) for each stage. Always separate the coordinates with a double !!. For example !!48.1469, 11.2659!! You can improvise on the length of stay in each city/country. Plan only one day at the starting point and one day at the destination.
   - a conclusion with advice and an opening to a possible continuation of the journey.
 
@@ -53,7 +53,9 @@ const getPrompt = ({ source_city, destination_city, mass_tourism, ecological, tr
 
   ${activities?.length ? `The activities I wish to do are: ${activities}.` : ''}
 
-  ${stops_inbetween !== "0" ? `The possible intermediate steps of the trip are: ${stops_inbetween}. Add steps in other countries or cities on the same route. Make a logical route.` : ''}
+  ${stops_inbetween !== "0" ? `The possible intermediate steps of the trip are: ${stops_inbetween}. Add steps in other countries or cities on the same route. Give an estimate of how many days can be spent at a country/city. Make a logical route.` : ''}
+
+  
   
   Render the entire itenary in HTML.
 `

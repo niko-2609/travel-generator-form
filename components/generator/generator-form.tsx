@@ -153,8 +153,10 @@ export default function GeneratorForm() {
       const htmlEndIndex = generation.indexOf('</html>');
       
       if (htmlEndIndex !== -1) {
-        const htmlPart = generation.slice(0, htmlEndIndex + 7); // Get the HTML document
+        const htmlPart = generation.slice(0, htmlEndIndex + 7).replace(/```html|```/g, '')// Get the HTML document
         const extraText = generation.slice(htmlEndIndex + 7).trim(); // Capture the text after </html>
+
+       // const finalhtml = htmlPart.replace(/```html|```/g, '')
   
         setHtmlContent(htmlPart);
         setExtraParagraph(extraText); // Store extra paragraph
